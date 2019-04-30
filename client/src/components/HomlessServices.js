@@ -8,11 +8,14 @@ class Service extends Component {
 
     return(
 
-         <div align="center">
+         <div align="center" >
+          <br />
+          <br />
+          <br />
           <br />
           <br />
              <Row>
-              <Button type="primary" shape="round" size="large" margin="10px" onClick ={() => this.props.setService("Shelter")}>
+              <Button className="btn" shape="round" size="large" margin="10px" onClick ={() => this.props.setService("Shelter")}>
                   Shelter
               </Button>
             </Row>
@@ -20,7 +23,7 @@ class Service extends Component {
             <br />
             </Row>
             <Row >
-              <Button type="primary" shape="round" margin="10px" size="large" onClick ={() => this.props.setService("Food")}>
+              <Button className="btn" shape="round" margin="10px" size="large" onClick ={() => this.props.setService("Food")}>
                 Food
               </Button>
             </Row>
@@ -28,7 +31,7 @@ class Service extends Component {
             <br />
             </Row>
             <Row >
-              <Button type="primary" shape="round" margin="10px" size="large" onClick ={() =>this.props.setService("Clothes")}>
+              <Button className="btn" shape="round" margin="10px" size="large" onClick ={() =>this.props.setService("Clothes")}>
                 Clothes
               </Button>
             </Row>

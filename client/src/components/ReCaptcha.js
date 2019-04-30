@@ -1,39 +1,50 @@
 import React, { Component } from 'react';
-import { ReCaptcha } from 'react-recaptcha-google'
-class Captcha extends Component {
+import  Recaptcha  from 'react-recaptcha';
+import { message } from 'antd';
+
+class CaptchaComponent extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
+
+    // this.state ={
+    //   isVerified: false
+    // }
+    // this.handleSubscribe = this.handleSubscribe.bind(this);
+    this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
   }
 
-  componentDidMount() {
-    if (this.captchaDemo) {
-        console.log("started, just a second...")
-        this.captchaDemo.reset();
-    }
+
+
+  // handleSubscribe() {
+  //     if (this.state.isVerified) {
+  //         message.success('You are successfully verified');
+  //     }else{
+  //       message.error('Please verify that you are a human!');
+  //     }
+  // }
+
+  recaptchaLoaded(recaptchaToken) {
+    // Here you will get the final recaptchaToken!!!
+    console.log("captcha loaded Successfully")
   }
 
-  onLoadRecaptcha() {
-      if (this.captchaDemo) {
-          this.captchaDemo.reset();
-      }
-  }
-  verifyCallback(recaptchaToken) {
-    // Here you will get the final recaptchaToken!!!
-    console.log(recaptchaToken, "<= your recaptcha token")
+  verifyCallback(response){
+    if (response) {
+        message.success('You are successfully verified');
+    }else{
+      message.error('Please verify that you are a human!');
+    }
   }
 
   render() {
     return (
       <div>
-        <ReCaptcha
-            ref={(el) => {this.captchaDemo = el;}}
-            size="normal"
+        <Recaptcha
             render="explicit"
-            sitekey="6LdmnZ4UAAAAADZNC1afUS5a7jBJIzrqw4UWcyVZ"
-            onloadCallback={this.onLoadRecaptcha}
+            sitekey="6LdD-6AUAAAAAHetFpyacFNJ6NfWyNSI_llUACLh"
+            onloadCallback={this.recaptchaLoaded}
             verifyCallback={this.verifyCallback}
         />
 
@@ -41,4 +52,4 @@ class Captcha extends Component {
     );
   };
 };
-export default Captcha;
+export default CaptchaComponent;

@@ -27,5 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-recaptcha": "^2.3.10",
+    "react-to-print": "^2.1.1"
   }
 }

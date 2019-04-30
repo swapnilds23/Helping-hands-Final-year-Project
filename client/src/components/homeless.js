@@ -100,8 +100,8 @@ class Homeless extends Component {
     return (
       <Layout>
 
-         <Content style={{
-           margin: '105px 16px', padding: 24, background: '#fff', minHeight: 520,
+         <Content  style={{
+           margin: '5% 2%', padding: 24, background: '#fff', minHeight: 520,
          }}
          >
             <div>

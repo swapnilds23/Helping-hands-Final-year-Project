@@ -3,7 +3,7 @@ import { Modal, Button, Form, Icon, Input, Alert } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import  './App.css';
-import Captcha from './ReCaptcha';
+import CaptchaComponent from './ReCaptcha';
 import { graphql } from 'react-apollo';
 import { LOGIN_DONAR } from './../queries';
 
@@ -28,6 +28,7 @@ class DonarLogin extends Component {
             { //console.log(res.data.login.id)
               localStorage.setItem("User_Id", res.data.login.id);
               this.props.history.push('/donar')
+                      window.location.reload();
             })
            .catch((errors)=> {
                this.setState({error:errors.graphQLErrors.map(error => error.message)});
@@ -85,7 +86,7 @@ render() {
                 <Form.Item
                 label="Captcha"
                 >
-                  <Captcha />
+                  <CaptchaComponent />
                 </Form.Item>
 
                 <Form.Item>
@@ -93,7 +94,7 @@ render() {
                   <Button type="primary" htmlType="submit" className="login-form-button" >
                     Log in
                   </Button>
-                  If new user<Link to='/'> Register</Link>
+                  If new user<Link to='/register'> Register</Link>
                 </Form.Item>
 
               </Form>

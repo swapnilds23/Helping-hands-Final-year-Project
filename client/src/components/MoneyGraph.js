@@ -41,7 +41,10 @@ class MoneyGraph extends Component{
   render(){
     return(
       <div>
-        <h1><b>For Every $1 Given To Helpinghands..</b></h1>
+      <br />
+      <br/>
+        <h1 className="uText">For Every $1 Given To Helping Hands..</h1>
+        <br />
         <Doughnut
           data = {{
               labels: this.state.labels,

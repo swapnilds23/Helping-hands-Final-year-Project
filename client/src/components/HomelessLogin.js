@@ -57,14 +57,15 @@ const { getFieldDecorator } = this.props.form;
 
       <Form onSubmit={this.handleSubmit} className="login-form">
 
-        <Form.Item>
+        <Form.Item >
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
           )}
         </Form.Item>
-        <Form.Item>
+        
+        <Form.Item >
           {getFieldDecorator('ssn', {
             rules: [{ required: true, message: 'Please input your ssn!' }],
           })(

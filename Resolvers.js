@@ -272,6 +272,30 @@ exports.resolvers={
         ssn,
       }).save();
       return true;
+    },
+
+    createCharges: async(parent, args, { Donar, req }, info)=>{
+      const { source, email, userId, amount } = args.data;
+
+      if(!userId){
+        throw new Error("User not authenticated");
+      }
+      const donar = await Donar.findOne({email});
+      if(donar === null){
+          throw new Error('User does not exist');
+      }
+      const charge = await stripe.charges.create({
+          amount: amount,
+          currency: 'usd',
+          description: 'Example charge',
+          source: source,
+        });
+
+        console.log(charge)
+        return donar;
     }
+    
   }
+
+
 };

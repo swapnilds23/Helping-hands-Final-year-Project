@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TakeMoney from './StripeSubscription';
+import Charges from './ApplyCharges';
 import { Tabs, Card, Col, Row, Radio } from 'antd';
 import './App.css';
 import NumericInput from './InputNumber';
@@ -15,13 +16,13 @@ class Payments extends Component {
   }
 
   onChange = (value) => {
-    //console.log(value.target.value)
-    this.setState( {value: parseInt(value.target.value, 10)} );
+    console.log(value)
+  this.setState( {value: parseInt(value, 10)} );
   }
 
 
 render() {
-      console.log(this.state.value)
+      //console.log(this.state.value)
       return (
 
         <div className="card-container">
@@ -31,11 +32,11 @@ render() {
 
             <div style={{ background: '#ECECEC', padding: '30px' }}>
 
-              <Row type ="flex" justify="start">
-                <h2><b> Here's what your monthly donation could achieve in a Year:</b></h2>
+              <Row type ="flex" justify="start" >
+                <h2 className="uText"> Here's what your monthly donation could achieve in a Year:</h2>
               </Row>
 
-              <Row type="flex" justify="space-around">
+              <Row type="flex" justify="space-around" >
 
                 <Col span={6}>
 
@@ -71,15 +72,12 @@ render() {
 
                 <Col span={6}>
 
-                  <Row style={{ marginBottom: 14 }}>
-                    <br/>
-                    <br/>
-                    <h2> or enter your own amount </h2>
-                    <br/>
-                    <NumericInput style={{ width: 170, height: 50}} onChange={this.onChange} />
-                  </Row>
+
 
                   <Row style={{ marginBottom: 14 }}>
+                    <br/>
+                    <br/>
+                    <br />
                     <br/>
                     <br/>
                     <TakeMoney amount={this.state.value}/>
@@ -100,7 +98,7 @@ render() {
                     Make Big Change</p>
                     <NumericInput style={{ width: 150, height: 40}}  onChange={this.onChange} />
                     {' '}
-                    <TakeMoney />
+                    <Charges amount={this.state.value}/>
                   </b></h1>
                 </div>
             </TabPane>

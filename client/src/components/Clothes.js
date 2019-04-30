@@ -65,8 +65,7 @@ class Clothes extends React.Component {
                         clothes.coordinates.map(coordnt => {
                           return(
                               <Menu.Item key={clothes.id} lat ={coordnt.lat} lng= {coordnt.log} onClick={this.handleDestination}>
-                               <Icon type="environment" />
-                               <span>{clothes.name}</span>
+                               <span >{clothes.name}</span>
                              </Menu.Item>
                             )
                         })

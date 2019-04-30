@@ -1,13 +1,13 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import { graphql } from 'react-apollo';
-import { DONAR_SUBSCRIPTION } from './../queries';
+import { CHARGES } from './../queries';
 import { Button, notification } from 'antd';
 import { withRouter } from 'react-router-dom';
 
 require("dotenv").config({path: ".env" });
 
-class TakeMoney extends React.Component {
+class Charges extends React.Component {
 
   state={
     error:"",
@@ -49,7 +49,7 @@ class TakeMoney extends React.Component {
                   // console.log(res.data.createSubscription.username)
                   this.props.history.push({
                     pathname:'/greeting',
-                    state: { userId: res.data.createSubscription.username,
+                    state: { userId: res.data.createCharges.username,
                              amount: amount }
                   })
                })
@@ -81,4 +81,4 @@ class TakeMoney extends React.Component {
   }
 }
 
-export default withRouter(graphql(DONAR_SUBSCRIPTION)(TakeMoney))
+export default withRouter(graphql(CHARGES)(Charges))

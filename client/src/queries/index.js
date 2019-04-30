@@ -94,7 +94,21 @@ export const DONAR_SUBSCRIPTION = gql`
           }
     }
 `;
-
+export const CHARGES = gql`
+  mutation($source: String!, $email: String!, $userId: String!, $amount: Int!){
+   createCharges(data:{
+                              source: $source
+                              email: $email
+                              userId: $userId
+                              amount: $amount
+                           }
+      ){
+        id
+        email
+        username
+      }
+}
+`;
 
 export const UPDATE_CARD_DETAILS = gql`
 

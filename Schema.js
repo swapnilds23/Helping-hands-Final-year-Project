@@ -56,9 +56,11 @@ type Mutation {
   login(data: LoginUser): Donar
   homelessLogin(data: LoginHomeless): Homeless
   createSubscription(data : Sub): Donar
+  createCharges(data: Sub): Donar
   changeCreaditCard(data : Sub): Donar
   cancelSubscription: Donar
   registerHomeless(data: LoginHomeless): Boolean
+
 }
 
 input LoginUser {

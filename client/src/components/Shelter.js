@@ -64,7 +64,6 @@ class Shelter extends React.Component {
                       shelter.coordinates.map(coordnt => {
                         return(
                           <Menu.Item key={shelter.id} lat ={coordnt.lat} lng= {coordnt.log} onClick={this.handleDestination}>
-                           <Icon type="environment" />
                            <span>{shelter.name}</span>
                          </Menu.Item>
                         )

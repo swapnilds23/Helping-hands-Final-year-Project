@@ -38,25 +38,27 @@ class App extends Component {
 
       <Layout >
 
-         <Content style={{
-           margin: '105px 16px', padding: 24, background: '#fff', minHeight: 500,
-         }}
+           <Content className ="divMain" style={{
+             margin: '5% 2%', padding: 24,  minHeight: 500,
+           }}
          >
-         <div align="center">
-          <br />
-          <br />
-          <br />
-          <br />
+         <div className="center-align ">
+
              <Row>
-              <Button type="primary" shape="round" size="large" margin="10px" onClick ={this.handleDonarModel}>
-                  Donor
+             <br />
+             <br />
+             <br />
+             <br />
+             <br />
+             <Button className="btn" shape="round" size="large" margin="10px" onClick ={this.handleDonarModel}>
+                  Helper
               </Button>
             </Row>
             <Row>
             <br />
             </Row>
             <Row >
-              <Button type="primary" shape="round" margin="10px" size="large" onClick ={this.handleHomelessModel}>
+              <Button className="btn" shape="round" margin="10px" size="large" onClick ={this.handleHomelessModel}>
                 Homeless
               </Button>
             </Row>

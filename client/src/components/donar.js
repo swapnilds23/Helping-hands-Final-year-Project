@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Steps, Button, message, Layout } from 'antd';
 import "./App.css";
-
+import ReactToPrint from 'react-to-print';
 import DonarService from './DonarServices';
 import ServiceProvider from './ServiceProvider';
 import Direction from './Direction';
 
-
 const Step = Steps.Step;
 const { Content } = Layout;
-
 
 class Donar extends Component {
   constructor(props) {
@@ -29,7 +27,7 @@ class Donar extends Component {
               content: <ServiceProvider service={this.getService}  setDestination={this.setDestination}/>,
             }, {
               title: 'Take a Print',
-              content: <Direction service={this.getService} orgLat={this.getLat} orgLng= {this.getLng} destLat ={this.geDesttLat} destLng ={this.getDestLng}/>,
+              content: <Direction service={this.getService} orgLat={this.getLat} orgLng= {this.getLng} destLat ={this.geDesttLat} destLng ={this.getDestLng} ref={el => (this.componentRef = el)}/>,
             }]
     };
   }
@@ -69,7 +67,7 @@ class Donar extends Component {
   getDestLng = ()=> {
     return this.state.destinationLng;
   }
-  
+
   setDestination = (lat, lng) => {
     let newState = this.state;
     newState.destinationLat = lat;
@@ -78,6 +76,7 @@ class Donar extends Component {
   }
 
   componentWillMount() {
+
     const location = window.navigator && window.navigator.geolocation;
     if (location ) {
       location.getCurrentPosition((position) => {
@@ -99,7 +98,7 @@ class Donar extends Component {
       <Layout>
 
          <Content style={{
-           margin: '105px 16px', padding: 24, background: '#fff', minHeight: 520,
+           margin: '5% 2%', padding: 24, background: '#fff', minHeight: 520,
          }}
          >
             <div>
@@ -110,16 +109,19 @@ class Donar extends Component {
               <div className="steps-action">
                 {
                   current < this.state.steps.length - 1
-                  && <Button type="primary" onClick={() => this.next()}>Next</Button>
+                  && <Button className="btn_new" size="large" onClick={() => this.next()}>Next</Button>
                 }
                 {
                   current === this.state.steps.length - 1
-                  && <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
+                  && <ReactToPrint
+                        trigger={() => <Button className="btn_new" size="large"  onClick={() => message.success('Processing complete!')}>Print</Button>}
+                        content={() => this.componentRef}
+                      />
                 }
                 {
                   current > 0
                   && (
-                  <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                  <Button className="btn_new" size="large" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
                     Previous
                   </Button>
                   )

@@ -59,7 +59,7 @@ class NumericInput extends React.Component {
         <Input
           {...this.props}
           onChange={this.onChange}
-          placeholder="Enter Amount in dollar"
+          placeholder="Enter Amount"
           maxLength={25}
         />
       </Tooltip>
